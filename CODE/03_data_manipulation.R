@@ -1,6 +1,6 @@
 
 ###Making ALL taxa-specific physeq objects:
-groups <- c("prok", "euk", "cyano", "chloro")
+groups <- c("prok", "euk", "chloro")
 SAMPLE_DATA <- sample_data(metadata)
 taxa_levels <- c("Phylum", "Family", "Genus", "Species")
 filter <- 0.15
@@ -53,6 +53,11 @@ for (group in groups) {
 physeq_Alphaproteobacteria <- subset_taxa(physeq_prok, Class==" Alphaproteobacteria")
 rel_physeq_Alphaproteobacteria <- transform_sample_counts(physeq_Alphaproteobacteria, function(x) x / sum(x))
 
+#flavo
 physeq_Flavobacteriales <- subset_taxa(physeq_prok, Order==" Flavobacteriales")
 rel_physeq_Flavobacteriales <- transform_sample_counts(physeq_Flavobacteriales, function(x) x / sum(x))
+
+#flavo
+physeq_cyano <- subset_taxa(physeq_prok, Phylum==" Cyanobacteria")
+rel_physeq_cyano <- transform_sample_counts(physeq_cyano, function(x) x / sum(x))
 

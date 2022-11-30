@@ -26,7 +26,7 @@ for (group in groups){
   otumat_temp_t <- t(otumat_temp)
   bray <- vegdist(otumat_temp_t, method = "bray")
   distMat = as.dist(bray)
-
+  
   set.seed(23984)
   NMDS1 = metaMDS(otumat_temp_t, k = 2, trymax=999, autotransform = FALSE, 
                   distance = "bray")
@@ -40,7 +40,7 @@ for (group in groups){
                         label = "Sample_ID") + geom_point(size = 2) + 
     theme_bw() + 
     scale_colour_brewer(type = "qual", palette = "Set1")
-
+  
   print(p1)
   
   ###conducting homogeneity of dispersal test + PERMANOVA
@@ -63,11 +63,12 @@ for (group in groups){
   physeq_BRAY <- vegdist(wisconsin(sqrt(physeq_vegan)), method = "bray")
   
   betadisp_physeq <- betadisper(physeq_BRAY, sampledf$gulf_group)
-  betadisper_plot <- boxplot(betadisp_physeq, xlab = "", las = 2, cex.axis = 0.8)
-  print(betadisper_plot)
-  
   #are the variances the same?
   anova(betadisp_physeq)
+  
+  betadisper_plot <- boxplot(betadisp_physeq, xlab = "group", las = 2, cex.axis = 0.8)
+  print(betadisper_plot)
+
   
   ###are the centroids of the clusters seen on the NMDS distinct?
   sampledf <- data.frame(sample_data(physeq_temp))
