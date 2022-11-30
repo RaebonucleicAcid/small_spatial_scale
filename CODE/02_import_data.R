@@ -1,7 +1,7 @@
 ###DATA MANIPULATION
 
-#setwd
-setwd("~/Desktop/SPATIAL/")
+##setwd
+setwd("~/Desktop/SPATIAL/small_spatial_scale")
 
 ##prok: READ IN OTU + TAX + metadata & re-format:
 #OTU table

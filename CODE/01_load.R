@@ -1,9 +1,9 @@
 rm(list=ls())
 
 ##setwd
-setwd("~/Desktop/SPATIAL/")
+setwd("~/Desktop/SPATIAL/small_spatial_scale")
 
-##source functions
+##source needed functions
 source("./FUNCTIONS/distance_decay.R")
   
 ##load packages
@@ -11,7 +11,8 @@ library("ggplot2");
 library("vegan");
 library("dplyr");
 library("phyloseq");
-library("data.table")
+library("data.table");
+library("tidyr")
 
 # Set colors for plotting
 stacked_colors <- c(
